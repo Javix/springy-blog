@@ -1,0 +1,16 @@
+*.swp
+*~
+.project
+.classpath
+.DS_Store
+.idea
+/project
+/public/
+/nbproject/
+/.settings/
+/target
+
+# Package Files #
+*.jar
+*.war
+*.ear
