@@ -13,4 +13,5 @@ public interface PostService {
     public Post findById(Long id);
 
     public void save(Post post);
+    public void destroy(Post post);
 }

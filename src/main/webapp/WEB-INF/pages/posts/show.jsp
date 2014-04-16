@@ -25,10 +25,10 @@
 
 <div class="container">
     <div class="row">
-        <h1>Post Details:</h1>
+        <h1>Post Details</h1>
         <label>${post.title}</label>
-
     </div>
+    <a href='<spring:url value="/posts" htmlEscape="true"/>'>Back to list</a>
 </div>
 
 </body>
