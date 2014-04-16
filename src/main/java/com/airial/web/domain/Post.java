@@ -10,15 +10,21 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "posts")
-public class Post implements Serializable{
-
-    private Long id;
-    private int version;
-    private String title;
+public class Post implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
+    private Long id;
+
+    @Version
+    @Column(name = "version")
+    private int version;
+
+    @Column(name = "title")
+    private String title;
+
+
     public Long getId() {
         return id;
     }
@@ -27,8 +33,7 @@ public class Post implements Serializable{
         this.id = id;
     }
 
-    @Version
-    @Column(name = "version")
+
     public int getVersion() {
         return version;
     }
@@ -37,12 +42,20 @@ public class Post implements Serializable{
         this.version = version;
     }
 
-    @Column(name = "title")
+
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    /**
+     * Used as a flag to check if it is a new record in the views
+     * @return true if it is a new record, false otherwise
+     */
+    public boolean isNew() {
+        return (this.id == null);
     }
 }
