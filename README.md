@@ -1,5 +1,5 @@
-Spring MVC, JPA blog CRUD application
-======================================
+Spring MVC, JPA CRUD blog application
+=====================
 
 The web application using Spring MVC and JPA.
 

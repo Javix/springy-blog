@@ -4,6 +4,7 @@
 .classpath
 .DS_Store
 .idea
+.iml
 /project
 /public/
 /nbproject/
