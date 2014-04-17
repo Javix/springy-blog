@@ -1,5 +1,7 @@
 package com.airial.web.domain;
 
+import org.springframework.core.style.ToStringCreator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -17,9 +19,9 @@ public class Post implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Version
+    /*@Version
     @Column(name = "version")
-    private int version;
+    private int version;*/
 
     @Column(name = "title")
     private String title;
@@ -34,13 +36,13 @@ public class Post implements Serializable {
     }
 
 
-    public int getVersion() {
+   /* public int getVersion() {
         return version;
     }
 
     public void setVersion(int version) {
         this.version = version;
-    }
+    }*/
 
 
     public String getTitle() {
@@ -53,9 +55,15 @@ public class Post implements Serializable {
 
     /**
      * Used as a flag to check if it is a new record in the views
+     *
      * @return true if it is a new record, false otherwise
      */
     public boolean isNew() {
         return (this.id == null);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringCreator(this).append("id", getId()).append("title", getTitle()).toString();
     }
 }
