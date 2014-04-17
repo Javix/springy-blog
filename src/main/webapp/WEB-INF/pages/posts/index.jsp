@@ -43,7 +43,7 @@
                             <td>${post.title}</td>
                             <td><a href="posts/${post.id}">Show</a></td>
                             <td><a href="posts/edit/${post.id}">Edit</a></td>
-                            <td><a href="/posts/delete/${post.id}">Destroy</a></td>
+                            <td><a href="posts/delete/${post.id}">Destroy</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
