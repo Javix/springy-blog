@@ -76,7 +76,7 @@ public class PostsController {
         }
     }
 
-    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String destroy(@PathVariable Long id) {
         Post post = postService.findById(id);
         postService.destroy(post);

@@ -43,7 +43,11 @@
                             <td>${post.title}</td>
                             <td><a href="posts/${post.id}">Show</a></td>
                             <td><a href="posts/edit/${post.id}">Edit</a></td>
-                            <td><a href="posts/delete/${post.id}">Destroy</a></td>
+                            <td>
+                                <form:form action="posts/${post.id}" method="delete">
+                                    <button type="submit" class="btn btn-xs btn-danger">Destroy</button>
+                                </form:form>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>
