@@ -54,7 +54,7 @@ public class PostsController {
         } else {
             postService.save(post);
             status.setComplete();
-            return "redirect:/posts/" + post.getId();
+            return "redirect:/posts";
         }
     }
 
@@ -72,12 +72,12 @@ public class PostsController {
         } else {
             postService.save(post);
             status.setComplete();
-            return "redirect:/posts/{id}";
+            return "redirect:/posts";
         }
     }
 
-    @RequestMapping(value = "/delete/{id}",  method = RequestMethod.GET)
-    public String destroy(@PathVariable Long id, Model model) {
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    public String destroy(@PathVariable Long id) {
         Post post = postService.findById(id);
         postService.destroy(post);
         return "redirect:/posts";
