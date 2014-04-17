@@ -27,8 +27,11 @@
     <div class="row">
         <h1>Post Details</h1>
         <label>${post.title}</label>
+        <p>
+            <a href='<spring:url value="/posts" htmlEscape="true"/>'>Back to list</a>
+        </p>
     </div>
-    <a href='<spring:url value="/posts" htmlEscape="true"/>'>Back to list</a>
+
 </div>
 
 </body>
