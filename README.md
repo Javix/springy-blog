@@ -24,7 +24,6 @@ Navigate to `localhost:8080/posts`
 
 #### TODO
 - use partials (e.g.Tiles to DRY the views code)
-- process delete action via DELETE request (actually via GET)
 - implement optimistic locking (actually commented)
 - add Post validation
 - add flash messages (errors, success)
