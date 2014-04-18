@@ -1,12 +1,12 @@
 Spring MVC, JPA CRUD blog application
-===
+---
 
 The web application using Spring MVC and JPA.
 
-#### Used frameworks:
-* Spring
-* JPA/Hibernate
-* Apache Tomcat 7 server
+#### Used frameworks
+- Spring
+- JPA/Hibernate
+- Apache Tomcat 7 server
 
 #### Database
 
