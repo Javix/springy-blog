@@ -18,7 +18,8 @@ The web application using Spring MVC and JPA.
 Run `mvn clean install` to download all the dependencies and initialize the project.
 To run an example, use `RunPostSample` class.
 
-To run on Tomcat server, either deploy the generated `war` or run the projet from your favorite IDE.
+To run on Tomcat server, either copy the generated `war` into webapp folder(or deploy it in a standard way)
+or run the project from your favorite IDE.
 
 
 #### TODO
