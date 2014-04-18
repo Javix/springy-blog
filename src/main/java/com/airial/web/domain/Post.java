@@ -1,5 +1,6 @@
 package com.airial.web.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.core.style.ToStringCreator;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Post implements Serializable {
     private int version;*/
 
     @Column(name = "title")
+    @NotEmpty(message="Title should not be empty")
     private String title;
 
 

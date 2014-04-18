@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +49,7 @@ public class PostsController {
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String processCreationForm(Post post, BindingResult result, SessionStatus status) {
+    public String processCreationForm(@Valid Post post, BindingResult result, SessionStatus status) {
         if (result.hasErrors()) {
             return "posts/form";
         } else {
@@ -66,7 +67,7 @@ public class PostsController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
-    public String processUpdateForm(Post post, BindingResult result, SessionStatus status) {
+    public String processUpdateForm(@Valid Post post, BindingResult result, SessionStatus status) {
         if (result.hasErrors()) {
             return "posts/form";
         } else {

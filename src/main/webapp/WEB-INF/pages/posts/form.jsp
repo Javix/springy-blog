@@ -22,6 +22,11 @@
         </h2>
         <form:form modelAttribute="post" method="${method}" class="form-horizontal" id="add-post-form" role="form">
             <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <form:errors path="*" cssClass="alert alert-danger"/>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Title*</label>
 
                 <div class="col-sm-10">
