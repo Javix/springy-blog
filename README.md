@@ -19,7 +19,6 @@ Run `mvn clean install` to download all the dependencies and initialize the proj
 To run an example, use `RunPostSample` class.
 
 To run on Tomcat server, either deploy the generated `war` or run the projet from your favorite IDE.
-Navigate to `localhost:8080/posts`
 
 
 #### TODO
