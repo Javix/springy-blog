@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <html>
 <jsp:include page="../shared/header.jsp"/>
@@ -20,31 +21,19 @@
                 <c:otherwise>Update Post</c:otherwise>
             </c:choose>
         </h2>
-        <form:form modelAttribute="post" method="${method}" class="form-horizontal" id="add-post-form" role="form">
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <form:errors path="*" cssClass="alert alert-danger"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Title*</label>
+        <form:form modelAttribute="post" method="${method}" id="add-post-form" role="form">
+            <t:input path="title" required="true"/>
 
-                <div class="col-sm-10">
-                    <form:input path="title" maxlength="100"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <c:choose>
-                        <c:when test="${post['new']}">
-                            <button type="submit" class="btn btn-primary">Add post</button>
-                        </c:when>
-                        <c:otherwise>
-                            <button type="submit" class="btn btn-primary">Update post</button>
-                        </c:otherwise>
-                    </c:choose>
-                </div>
-            </div>
+            <c:choose>
+                <c:when test="${post['new']}">
+                    <button type="submit" class="btn btn-primary">Add post</button>
+                </c:when>
+                <c:otherwise>
+                    <button type="submit" class="btn btn-primary">Update post</button>
+                </c:otherwise>
+            </c:choose>
+
+
         </form:form>
         <a href='<spring:url value="/posts" htmlEscape="true"/>'>Back to list</a>
     </div>
