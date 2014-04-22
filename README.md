@@ -26,4 +26,3 @@ or run the project from your favorite IDE.
 - use partials (e.g.Tiles to DRY the views code)
 - implement optimistic locking (actually commented)
 - tests
-
