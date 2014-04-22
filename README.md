@@ -25,6 +25,5 @@ or run the project from your favorite IDE.
 #### TODO
 - use partials (e.g.Tiles to DRY the views code)
 - implement optimistic locking (actually commented)
-- add flash messages (errors, success)
 - tests
 
