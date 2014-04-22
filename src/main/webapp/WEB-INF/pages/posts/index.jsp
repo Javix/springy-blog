@@ -9,6 +9,9 @@
 <jsp:include page="../shared/navbar.jsp"/>
 <div class="container">
     <div class="row">
+        <c:if test="${not empty message}">
+            <div class="alert alert-success">${message}</div>
+        </c:if>
         <div class="span8 offset2">
             <c:if test="${!empty posts}">
                 <h3>Posts</h3>

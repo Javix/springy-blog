@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -49,10 +50,12 @@ public class PostsController {
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String processCreationForm(@Valid Post post, BindingResult result, SessionStatus status) {
+    public String processCreationForm(@Valid Post post, BindingResult result, RedirectAttributes redirectAttributes,
+                                      SessionStatus status) {
         if (result.hasErrors()) {
             return "posts/form";
         } else {
+            redirectAttributes.addFlashAttribute("message", "Post created successfully !");
             postService.save(post);
             status.setComplete();
             return "redirect:/posts";
@@ -67,20 +70,24 @@ public class PostsController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
-    public String processUpdateForm(@Valid Post post, BindingResult result, SessionStatus status) {
+    public String processUpdateForm(@Valid Post post, BindingResult result, RedirectAttributes redirectAttributes,
+                                    SessionStatus status) {
         if (result.hasErrors()) {
             return "posts/form";
         } else {
+            redirectAttributes.addFlashAttribute("message", "Post updated successfully !");
             postService.save(post);
             status.setComplete();
+
             return "redirect:/posts";
         }
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String destroy(@PathVariable Long id) {
+    public String destroy(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         Post post = postService.findById(id);
         postService.destroy(post);
+        redirectAttributes.addFlashAttribute("message", "Post deleted successfully !");
         return "redirect:/posts";
     }
 }
