@@ -91,4 +91,3 @@ public class PostsController {
         return "redirect:/posts";
     }
 }
-
