@@ -23,5 +23,6 @@ public class RunPostSample {
         for (Post post : posts) {
             System.out.println("Post title: " + post.getTitle());
         }
+        ctx.close();
     }
 }
