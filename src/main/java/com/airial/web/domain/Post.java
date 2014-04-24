@@ -20,12 +20,10 @@ public class Post implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    /*@Version
-    @Column(name = "version")
-    private int version;*/
+    private int version;
 
     @Column(name = "title")
-    @NotEmpty(message="Title should not be empty")
+    @NotEmpty(message = "Title should not be empty")
     private String title;
 
 
@@ -37,14 +35,15 @@ public class Post implements Serializable {
         this.id = id;
     }
 
-
-   /* public int getVersion() {
+    @Version
+    @Column(name = "version")
+    public int getVersion() {
         return version;
     }
 
     public void setVersion(int version) {
         this.version = version;
-    }*/
+    }
 
 
     public String getTitle() {
