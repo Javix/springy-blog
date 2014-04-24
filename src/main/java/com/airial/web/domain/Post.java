@@ -5,6 +5,8 @@ import org.springframework.core.style.ToStringCreator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -25,6 +27,9 @@ public class Post implements Serializable {
     @Column(name = "title")
     @NotEmpty(message = "Title should not be empty")
     private String title;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "post", cascade = CascadeType.ALL)
+    private Set<Comment> comments = new HashSet<>();
 
 
     public Long getId() {
@@ -61,6 +66,15 @@ public class Post implements Serializable {
      */
     public boolean isNew() {
         return (this.id == null);
+    }
+
+    //@OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override

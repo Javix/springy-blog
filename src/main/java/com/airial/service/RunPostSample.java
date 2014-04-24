@@ -1,9 +1,11 @@
 package com.airial.service;
 
+import com.airial.web.domain.Comment;
 import com.airial.web.domain.Post;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by scambour on 15/04/14.
@@ -18,29 +20,34 @@ public class RunPostSample {
         System.out.println("App context initialized successfully");
         PostService postService = ctx.getBean("postService", PostService.class);
         List<Post> posts = postService.findAll();
-        System.out.println("Post size: " + posts.size());
+        System.out.println("Total Posts found: " + posts.size());
+        System.out.println("----------------------------------------------");
 
         for (Post post : posts) {
-            System.out.println("Post title: " + post.getTitle());
+            System.out.println("Post id: " + post.getId() + ": " + post.getTitle());
         }
 
+        //Update an existing Post
         Post post = postService.findByTitleIgnoreCase("Ruby");
         System.out.println("Found post with title 'Ruby': " + post.getTitle());
 
         post.setTitle("Ruby-2.1");
-        System.out.println("Version before: " + post.getVersion());
         postService.save(post);
-        System.out.println("Version after: " + post.getVersion());
         System.out.println("Post " + post.getTitle() + " was updated");
 
-        Post jrubyPost = new Post();
-        jrubyPost.setTitle("JRuby");
-        postService.save(jrubyPost);
-        System.out.println("Jruby post " + jrubyPost.getTitle() + ", version: " + jrubyPost.getVersion());
+        //Create a new Post
+        Post jRubyPost = new Post();
+        jRubyPost.setTitle("JRuby");
+        postService.save(jRubyPost);
+        System.out.println("Created a new Post with id: " + jRubyPost.getId() + ": " + jRubyPost.getTitle());
 
-        jrubyPost.setTitle("Jruby-1.7.12");
-        postService.save(jrubyPost);
-        System.out.println("Jruby post " + jrubyPost.getTitle() + ", version updated: " + jrubyPost.getVersion());
+        //Display Post comments
+        Post postWithComments = postService.findById(Long.valueOf(1));
+        Set<Comment> comments = postWithComments.getComments();
+        System.out.println("Post " + postWithComments.getTitle() + " has " +comments.size() + " comments");
+        for (Comment comment : comments) {
+            System.out.println("Comment text: " + comment.getText());
+        }
 
         ctx.close();
     }
