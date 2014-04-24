@@ -26,6 +26,22 @@ public class RunPostSample {
 
         Post post = postService.findByTitleIgnoreCase("Ruby");
         System.out.println("Found post with title 'Ruby': " + post.getTitle());
+
+        post.setTitle("Ruby-2.1");
+        System.out.println("Version before: " + post.getVersion());
+        postService.save(post);
+        System.out.println("Version after: " + post.getVersion());
+        System.out.println("Post " + post.getTitle() + " was updated");
+
+        Post jrubyPost = new Post();
+        jrubyPost.setTitle("JRuby");
+        postService.save(jrubyPost);
+        System.out.println("Jruby post " + jrubyPost.getTitle() + ", version: " + jrubyPost.getVersion());
+
+        jrubyPost.setTitle("Jruby-1.7.12");
+        postService.save(jrubyPost);
+        System.out.println("Jruby post " + jrubyPost.getTitle() + ", version updated: " + jrubyPost.getVersion());
+
         ctx.close();
     }
 }
