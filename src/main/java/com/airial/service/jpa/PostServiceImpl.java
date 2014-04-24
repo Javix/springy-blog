@@ -35,6 +35,13 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public Post findByTitleIgnoreCase(String title) {
+        return postRepository.findByTitleIgnoreCase(title);
+    }
+
+
+    @Override
     public void save(Post post) {
         postRepository.save(post);
     }

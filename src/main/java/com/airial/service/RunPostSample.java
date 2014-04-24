@@ -23,6 +23,9 @@ public class RunPostSample {
         for (Post post : posts) {
             System.out.println("Post title: " + post.getTitle());
         }
+
+        Post post = postService.findByTitleIgnoreCase("Ruby");
+        System.out.println("Found post with title 'Ruby': " + post.getTitle());
         ctx.close();
     }
 }
