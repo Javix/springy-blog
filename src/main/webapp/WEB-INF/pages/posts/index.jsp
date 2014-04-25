@@ -29,7 +29,7 @@
                         <tr>
                             <td>${post.title}</td>
                             <td><a href="posts/${post.id}">Comments</a></td>
-                            <td><a href="posts/edit/${post.id}">Edit</a></td>
+                            <td><a href="posts/${post.id}/edit">Edit</a></td>
                             <td>
                                 <form:form action="posts/${post.id}" method="delete">
                                     <button type="submit" class="btn btn-xs btn-danger">Destroy</button>

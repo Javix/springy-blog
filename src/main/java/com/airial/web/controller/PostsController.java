@@ -63,14 +63,14 @@ public class PostsController {
         }
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
     public String initUpdateForm(@PathVariable Long id, Model model) {
         Post post = postService.findById(id);
         model.addAttribute(post);
         return "posts/form";
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}/edit", method = RequestMethod.PUT)
     public String processUpdateForm(@Valid Post post, BindingResult result, RedirectAttributes redirectAttributes,
                                     SessionStatus status) {
         if (result.hasErrors()) {

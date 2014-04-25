@@ -21,7 +21,7 @@
                 <c:otherwise>Update Post</c:otherwise>
             </c:choose>
         </h2>
-        <form:form modelAttribute="post" method="${method}" id="add-post-form" role="form">
+        <form:form modelAttribute="post" method="${method}" id="post_${post.id}_form" role="form">
             <t:input path="title" required="true"/>
 
             <c:choose>
