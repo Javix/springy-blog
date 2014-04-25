@@ -34,7 +34,7 @@
             </c:choose>
 
 
-        </form:form>
+        </form:form><br/>
         <a href='<spring:url value="/posts" htmlEscape="true"/>'>Back to list</a>
     </div>
 </div>
