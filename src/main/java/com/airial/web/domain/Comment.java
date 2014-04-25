@@ -1,5 +1,7 @@
 package com.airial.web.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -17,6 +19,7 @@ public class Comment {
     private Long id;
 
     @Column(name = "text")
+    @NotEmpty(message = "Text should not be empty")
     private String text;
 
     private int version;
