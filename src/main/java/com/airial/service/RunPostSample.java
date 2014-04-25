@@ -44,10 +44,18 @@ public class RunPostSample {
         //Display Post comments
         Post postWithComments = postService.findById(Long.valueOf(1));
         Set<Comment> comments = postWithComments.getComments();
-        System.out.println("Post " + postWithComments.getTitle() + " has " +comments.size() + " comments");
+        System.out.println("Post " + postWithComments.getTitle() + " has " + comments.size() + " comments");
         for (Comment comment : comments) {
             System.out.println("Comment text: " + comment.getText() + " for Post: " + comment.getPost().getTitle());
         }
+
+        //Update a comment
+        CommentService commentService = ctx.getBean("commentService", CommentService.class);
+        Comment cmt = (Comment) comments.toArray()[0];
+        cmt.setText("Modified");
+        commentService.save(cmt);
+        System.out.println("Comment " + cmt.getText() + " for post "
+                + cmt.getPost().getTitle() + " was updated with success.");
 
         ctx.close();
     }
