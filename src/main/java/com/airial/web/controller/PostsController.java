@@ -39,6 +39,7 @@ public class PostsController {
     public String show(@PathVariable Long id, Model uiModel) {
         Post post = postService.findById(id);
         uiModel.addAttribute("post", post);
+        uiModel.addAttribute("comments", post.getComments());
         return "posts/show";
     }
 

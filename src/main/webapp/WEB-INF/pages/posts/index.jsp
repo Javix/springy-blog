@@ -28,7 +28,7 @@
                     <c:forEach items="${posts}" var="post">
                         <tr>
                             <td>${post.title}</td>
-                            <td><a href="posts/${post.id}">Show</a></td>
+                            <td><a href="posts/${post.id}">Comments</a></td>
                             <td><a href="posts/edit/${post.id}">Edit</a></td>
                             <td>
                                 <form:form action="posts/${post.id}" method="delete">
