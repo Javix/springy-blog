@@ -58,4 +58,13 @@ public class Comment {
     public void setVersion(int version) {
         this.version = version;
     }
+
+    /**
+     * Used as a flag to check if it is a new record in the views
+     *
+     * @return true if it is a new record, false otherwise
+     */
+    public boolean isNew() {
+        return (this.id == null);
+    }
 }
