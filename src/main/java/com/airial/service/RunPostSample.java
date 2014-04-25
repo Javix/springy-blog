@@ -46,7 +46,7 @@ public class RunPostSample {
         Set<Comment> comments = postWithComments.getComments();
         System.out.println("Post " + postWithComments.getTitle() + " has " +comments.size() + " comments");
         for (Comment comment : comments) {
-            System.out.println("Comment text: " + comment.getText());
+            System.out.println("Comment text: " + comment.getText() + " for Post: " + comment.getPost().getTitle());
         }
 
         ctx.close();
