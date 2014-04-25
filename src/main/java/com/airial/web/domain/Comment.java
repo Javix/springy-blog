@@ -1,6 +1,7 @@
 package com.airial.web.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.core.style.ToStringCreator;
 
 import javax.persistence.*;
 
@@ -69,5 +70,14 @@ public class Comment {
      */
     public boolean isNew() {
         return (this.id == null);
+    }
+
+    @Override
+    public String toString() {
+        ToStringCreator stringCreator = new ToStringCreator(this);
+        stringCreator.append("id", getId());
+        stringCreator.append("text", getText());
+        stringCreator.append("post", getPost());
+        return stringCreator.toString();
     }
 }

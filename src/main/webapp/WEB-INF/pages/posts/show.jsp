@@ -38,6 +38,7 @@
                             <c:forEach items="${comments}" var="comment">
                                 <tr>
                                     <td>${comment.text}</td>
+                                    <td><a href="${post.id}/comments/${comment.id}/edit">Edit</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -51,8 +52,8 @@
                 <a href='<spring:url value="/posts" htmlEscape="true"/>'>Back to posts</a>
             </p>
         </div>
-
     </div>
+</div>
 
 </body>
 </html>
