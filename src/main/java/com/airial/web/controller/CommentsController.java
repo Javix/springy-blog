@@ -15,6 +15,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 /**
  * Created by scambour on 25/04/14.
@@ -28,6 +29,30 @@ public class CommentsController {
 
     @Autowired
     private PostService postService;
+
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String initCreationForm(Map<String, Object> model) {
+        Comment comment = new Comment();
+        model.put("comment", comment);
+        return "comments/form";
+    }
+
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    public String processCreationForm(@PathVariable Long post_id, @Valid Comment comment, BindingResult result, RedirectAttributes redirectAttributes,
+                                      SessionStatus status) {
+
+        Post post = postService.findById(post_id);
+        comment.setPost(post);
+
+        if (result.hasErrors()) {
+            return "comments/form";
+        } else {
+            redirectAttributes.addFlashAttribute("message", "Comment created successfully !");
+            commentService.save(comment);
+            status.setComplete();
+            return "redirect:/posts/{post_id}";
+        }
+    }
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
     public String initUpdateForm(@PathVariable Long id, Model model) {

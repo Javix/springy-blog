@@ -11,7 +11,7 @@
 <jsp:include page="../shared/navbar.jsp"/>
 <div class="container">
     <c:choose>
-        <c:when test="${comment['new']}"><c:set var="method" value="comment"/></c:when>
+        <c:when test="${comment['new']}"><c:set var="method" value="post"/></c:when>
         <c:otherwise><c:set var="method" value="put"/></c:otherwise>
     </c:choose>
     <div class="row">

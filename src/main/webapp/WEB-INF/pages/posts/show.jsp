@@ -49,7 +49,8 @@
             </c:choose>
 
             <p>
-                <a href='<spring:url value="/posts" htmlEscape="true"/>'>Back to posts</a>
+                <a href='<spring:url value="/posts" htmlEscape="true"/>'>Back to posts</a> |
+                <a href='<spring:url value="/posts/${post.id}/comments/new" htmlEscape="true"/>'>New comment</a>
             </p>
         </div>
     </div>
