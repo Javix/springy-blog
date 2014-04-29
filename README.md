@@ -20,7 +20,3 @@ To run an example, use `RunPostSample` class.
 
 To run on Tomcat server, either copy the generated `war` into webapp folder(or deploy it in a standard way)
 or run the project from your favorite IDE.
-
-
-#### TODO
-- tests
