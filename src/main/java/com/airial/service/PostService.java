@@ -13,6 +13,6 @@ public interface PostService {
     public Post findById(Long id);
     public Post findByTitleIgnoreCase(String title);
 
-    public void save(Post post);
+    public Post save(Post post);
     public void destroy(Post post);
 }
