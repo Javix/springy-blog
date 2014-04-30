@@ -7,6 +7,7 @@ The web application using Spring MVC and JPA.
 - Spring
 - JPA/Hibernate
 - Apache Tomcat 7 server
+- Twitter Bootstrap
 
 #### Database
 
